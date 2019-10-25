@@ -12,7 +12,7 @@ export default {
   physics: {
     default: "arcade", // 物理系统
     arcade: {
-      gravity: { y: 300 },
+      gravity: { y: 0 },
       debug: false
     }
   }

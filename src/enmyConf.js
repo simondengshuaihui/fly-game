@@ -1,0 +1,61 @@
+export default function () {
+    return {
+        enemy1: {
+            game: this,
+            selfPic: 'enemy1',
+            bulletPic: 'bullet',
+            explodePic: 'explode1',
+            selfPool: 10,
+            bulletsPool: 50,
+            explodePool: 10,
+            life: 2,
+            velocity: 50,
+            bulletX: 9,
+            bulletY: 20,
+            bulletVelocity: 200,
+            selfTimeInterval: 2,
+            bulletTimeInterval: 1000,
+            score: 10,
+            firesound: this.firesound,
+            crashsound: this.crash1
+          },
+          enemy2: {
+            game: this,
+            selfPic: 'enemy2',
+            bulletPic: 'bullet',
+            explodePic: 'explode2',
+            selfPool: 10,
+            bulletsPool: 50,
+            explodePool: 10,
+            life: 3,
+            velocity: 40,
+            bulletX: 13,
+            bulletY: 30,
+            bulletVelocity: 250,
+            selfTimeInterval: 3,
+            bulletTimeInterval: 1200,
+            score: 20,
+            firesound: this.firesound,
+            crashsound: this.crash2
+          },
+          enemy3: {
+            game: this,
+            selfPic: 'enemy3',
+            bulletPic: 'bullet',
+            explodePic: 'explode3',
+            selfPool: 5,
+            bulletsPool: 25,
+            explodePool: 5,
+            life: 10,
+            velocity: 30,
+            bulletX: 22,
+            bulletY: 50,
+            bulletVelocity: 300,
+            selfTimeInterval: 10,
+            bulletTimeInterval: 1500,
+            score: 50,
+            firesound: this.firesound,
+            crashsound: this.crash3
+          }
+    }
+}
