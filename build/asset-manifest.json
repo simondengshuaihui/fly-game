@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.1779617f.chunk.css",
-    "main.js": "/static/js/main.329e87cd.chunk.js",
-    "main.js.map": "/static/js/main.329e87cd.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5f4eecb8.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5f4eecb8.js.map",
-    "static/js/2.41f10790.chunk.js": "/static/js/2.41f10790.chunk.js",
-    "static/js/2.41f10790.chunk.js.map": "/static/js/2.41f10790.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.99d59066f690876e3910c05a893251c3.js": "/precache-manifest.99d59066f690876e3910c05a893251c3.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.1779617f.chunk.css.map": "/static/css/main.1779617f.chunk.css.map"
+    "main.css": "/simondengshuaihui/fly-game/build/static/css/main.1779617f.chunk.css",
+    "main.js": "/simondengshuaihui/fly-game/build/static/js/main.ce3b9b6e.chunk.js",
+    "main.js.map": "/simondengshuaihui/fly-game/build/static/js/main.ce3b9b6e.chunk.js.map",
+    "runtime-main.js": "/simondengshuaihui/fly-game/build/static/js/runtime-main.16813afd.js",
+    "runtime-main.js.map": "/simondengshuaihui/fly-game/build/static/js/runtime-main.16813afd.js.map",
+    "static/js/2.41f10790.chunk.js": "/simondengshuaihui/fly-game/build/static/js/2.41f10790.chunk.js",
+    "static/js/2.41f10790.chunk.js.map": "/simondengshuaihui/fly-game/build/static/js/2.41f10790.chunk.js.map",
+    "index.html": "/simondengshuaihui/fly-game/build/index.html",
+    "precache-manifest.d5da0d9c428edbea48960c590d4bdc1c.js": "/simondengshuaihui/fly-game/build/precache-manifest.d5da0d9c428edbea48960c590d4bdc1c.js",
+    "service-worker.js": "/simondengshuaihui/fly-game/build/service-worker.js",
+    "static/css/main.1779617f.chunk.css.map": "/simondengshuaihui/fly-game/build/static/css/main.1779617f.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.5f4eecb8.js",
+    "static/js/runtime-main.16813afd.js",
     "static/js/2.41f10790.chunk.js",
     "static/css/main.1779617f.chunk.css",
-    "static/js/main.329e87cd.chunk.js"
+    "static/js/main.ce3b9b6e.chunk.js"
   ]
 }
