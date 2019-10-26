@@ -11,6 +11,6 @@ export default function startGame(){
     game.scene.add('load', Load)
     game.scene.add('main', Main)
     game.scene.add('start', Start)
-    game.scene.add('voer',Over)
+    game.scene.add('over',Over)
     game.scene.start('boot')
 }

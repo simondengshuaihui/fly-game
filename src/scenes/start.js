@@ -7,6 +7,7 @@ export default class Start extends Phaser.Scene{
     preload(){
     }
     create(){
+        this.startGame = false
         // 添加背景
         this.bg = this.add.tileSprite(0, 0, config.width*2, config.height*2, 'background');
         // 飞机
@@ -33,7 +34,7 @@ export default class Start extends Phaser.Scene{
         });
         // 背景音乐
         this.playback = this.sound.add('playback',{loop:true});
-        // this.playback.play();
+        this.playback.play();
         // 开火音乐
         this.pi = this.sound.add('pi');
         // 打中敌人音乐
@@ -50,18 +51,20 @@ export default class Start extends Phaser.Scene{
     update(){
         // 背景滚动
         this.bg.tilePositionY -= 0.5
-        // 自己发射子弹
-        this.myFireBullet();
-        // 敌人发射子弹
-        this.enemy1 && this.enemy1.enemyFire()
+       if(this.startGame){
+            // 自己发射子弹
+            this.myFireBullet();
+            // 敌人发射子弹
+            this.enemy1 && this.enemy1.enemyFire()
+            this.enemy2 && this.enemy2.enemyFire()
+            this.enemy3 && this.enemy3.enemyFire()
+       }
     }
     // 开始游戏
     onStart(){
         // 我的子弹
         this.mybullets = this.physics.add.group();
-        // this.mybullets.createMultiple({quantity:10, key:'mybullet',active:false});
         this.bulletTime = 0;
-        
         // 我的飞机允许拖拽
         this.input.setDraggable(this.myplan);
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
@@ -82,13 +85,27 @@ export default class Start extends Phaser.Scene{
         // 生成enemy
         const ENEMY_TEAM = enemyTeam.call(this)
         this.enemy1 = new Enemy(ENEMY_TEAM.enemy1)
+        this.enemy2 = new Enemy(ENEMY_TEAM.enemy2)
+        this.enemy3 = new Enemy(ENEMY_TEAM.enemy3)
         this.enemy1.init()
+        this.enemy2.init()
+        this.enemy3.init()
 
         // 碰撞检测
         this.physics.add.overlap(this.mybullets, this.enemy1.enemys, this.enemy1.hitEnemy, null, this.enemy1);
         this.physics.add.overlap(this.enemy1.enemys, this.myplan, this.crashMyplane, null, this);
         this.physics.add.overlap(this.enemy1.enemyBullets, this.myplan, this.hitMyplane, null, this);
+
+        this.physics.add.overlap(this.mybullets, this.enemy2.enemys, this.enemy2.hitEnemy, null, this.enemy2);
+        this.physics.add.overlap(this.enemy2.enemys, this.myplan, this.crashMyplane, null, this);
+        this.physics.add.overlap(this.enemy2.enemyBullets, this.myplan, this.hitMyplane, null, this);
+
+        this.physics.add.overlap(this.mybullets, this.enemy3.enemys, this.enemy3.hitEnemy, null, this.enemy3);
+        this.physics.add.overlap(this.enemy3.enemys, this.myplan, this.crashMyplane, null, this);
+        this.physics.add.overlap(this.enemy3.enemyBullets, this.myplan, this.hitMyplane, null, this);
+        
         this.physics.add.overlap(this.awards, this.myplan, this.getAward, null, this);
+        this.startGame = true
     }
     // 产生一个奖励
     generateAward(){
@@ -101,21 +118,19 @@ export default class Start extends Phaser.Scene{
     myFireBullet(){
         if(this.myplan.active && new Date().getTime() > this.bulletTime){
             try{this.pi.play()} catch(e){} //播放声音
-            let bullet;
-            this.fireOneBullet(bullet,0,-400)
+            this.fireOneBullet(0,-400)
             if(this.myplan.level >= 2){
-                this.fireOneBullet(bullet,-40,-400)
-                this.fireOneBullet(bullet,40,-400)
+                this.fireOneBullet(-40,-400)
+                this.fireOneBullet(40,-400)
             }
             if(this.myplan.level >= 3){
-               this.fireOneBullet(bullet,-80,-400)
-               this.fireOneBullet(bullet,80,-400)
+               this.fireOneBullet(-80,-400)
+               this.fireOneBullet(80,-400)
             }
         }
     }
     // 超出边界元素disactive
     outOfBoundsKill(gameObj){
-        // bullet.setPosition(this.myplan.x, this.myplan.y - 15)
         gameObj.setCollideWorldBounds(true);
         // Turning this on will allow you to listen to the 'worldbounds' event
         gameObj.body.onWorldBounds = true;
@@ -130,22 +145,23 @@ export default class Start extends Phaser.Scene{
         }, gameObj);
     }
     // 发射一颗子弹
-    fireOneBullet(bullet,Vx,Vy){
-        bullet = this.mybullets.getFirstDead(true,this.myplan.x,this.myplan.y - 5,'mybullet')
-            if(bullet){
-                this.outOfBoundsKill(bullet)
-                bullet.enableBody(true,this.myplan.x, this.myplan.y,true,true)
-                bullet.setVelocity(Vx,Vy)
-                this.bulletTime = new Date().getTime() + 200
-            }
+    fireOneBullet(Vx,Vy){
+        let bullet = this.mybullets.getFirstDead(true,this.myplan.x,this.myplan.y - 5,'mybullet')
+        console.log(bullet)
+        this.outOfBoundsKill(bullet)
+        bullet.enableBody(true,this.myplan.x, this.myplan.y,true,true)
+        bullet.setVelocity(Vx,Vy)
+        this.bulletTime = new Date().getTime() + 200
     }
+    // 跟新分数
     updateScore(score){
         this.score += score
         this.text.setText(`Score: ${this.score}`)
     }
+    // 跳转到over
     goToOver(){
         this.playback.pause()
-        this.scene.start('over')
+        this.scene.start('over',{score:this.score})
     }
     crashMyplane(myplan,enemy){
         myplan.disableBody(true,true)
@@ -169,6 +185,7 @@ export default class Start extends Phaser.Scene{
             myplan.level++;
           }
     }
+    // myplan爆炸
     dead(){
         try {this.ao.play();} catch(e) {}
         this.anims.create({

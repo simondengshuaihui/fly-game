@@ -29,19 +29,19 @@ export default class Load extends Phaser.Scene {
     },this);
 
     this.load.image("background", "assets/bg.jpg");
-    this.load.spritesheet("myplane","assets/myplane.png", {frameWidth: 40,frameHeight: 40},4);
-    this.load.spritesheet("startbutton","assets/startbutton.png",{ frameWidth: 100, frameHeight: 40 },2);
-    this.load.spritesheet("replaybutton","assets/replaybutton.png",{ frameWidth: 80, frameHeight: 30 },2);
-    this.load.spritesheet("sharebutton","assets/sharebutton.png",{ frameWidth: 80, frameHeight: 30 },2);
+    this.load.spritesheet("myplane","assets/myplane.png", {frameWidth: 40,frameHeight: 40});
+    this.load.spritesheet("startbutton","assets/startbutton.png",{ frameWidth: 100, frameHeight: 40 });
+    this.load.spritesheet("replaybutton","assets/replaybutton.png",{ frameWidth: 80, frameHeight: 30 });
+    this.load.spritesheet("sharebutton","assets/sharebutton.png",{ frameWidth: 80, frameHeight: 30 });
     this.load.image("mybullet", "assets/mybullet.png");
     this.load.image("bullet", "assets/bullet.png");
     this.load.image("enemy1", "assets/enemy1.png");
     this.load.image("enemy2", "assets/enemy2.png");
     this.load.image("enemy3", "assets/enemy3.png");
-    this.load.spritesheet("explode1", "assets/explode1.png", {frameWidth:20, frameHeight:20}, 3);
-    this.load.spritesheet("explode2", "assets/explode2.png", {frameWidth:30, frameHeight:30}, 3);
-    this.load.spritesheet("explode3", "assets/explode3.png",{frameWidth:50, frameHeight:50}, 3);
-    this.load.spritesheet("myexplode", "assets/myexplode.png", {frameWidth:40, frameHeight:40}, 3);
+    this.load.spritesheet("explode1", "assets/explode1.png", {frameWidth:20, frameHeight:20});
+    this.load.spritesheet("explode2", "assets/explode2.png", {frameWidth:30, frameHeight:30});
+    this.load.spritesheet("explode3", "assets/explode3.png",{frameWidth:50, frameHeight:50});
+    this.load.spritesheet("myexplode", "assets/myexplode.png", {frameWidth:40, frameHeight:40});
     this.load.image("award", "assets/award.png");
     this.load.audio("normalback", "assets/normalback.mp3");
     this.load.audio("playback", "assets/playback.mp3");

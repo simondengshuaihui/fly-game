@@ -56,11 +56,11 @@ export default class Enemy{
                 config.crashsound.play();
               } catch(e) {}
             let explosion = this.explosions.getFirstDead(true,enemy.x,enemy.y,config.explodePic).setOrigin(0,0)
+            explosion.setPosition(enemy.x, enemy.y)
+            enemy.disableBody(true,true)
             explosion.setActive(true)
             explosion.setVisible(true)
-            explosion.setPosition(enemy.x, enemy.y)
             explosion.anims.play(config.explodePic,true)
-            enemy.disableBody(true,true)
             explosion.on('animationcomplete', ()=>{explosion.setActive(false)}, this);
             config.game.updateScore(config.score)
         }
