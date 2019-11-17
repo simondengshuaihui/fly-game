@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9950de9989422177d4d45ec596ba9b56",
+    "revision": "867be815e6aceee9a6caf46a3b96ca54",
     "url": "/fly-game/build/index.html"
   },
   {
-    "revision": "770ae78e1590134b604f",
+    "revision": "67a387a8fbbba247b307",
     "url": "/fly-game/build/static/css/main.1779617f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fly-game/build/static/js/2.41f10790.chunk.js"
   },
   {
-    "revision": "770ae78e1590134b604f",
-    "url": "/fly-game/build/static/js/main.1e58c2ba.chunk.js"
+    "revision": "67a387a8fbbba247b307",
+    "url": "/fly-game/build/static/js/main.67c4edfa.chunk.js"
   },
   {
     "revision": "4b389e75a93b4b693650",

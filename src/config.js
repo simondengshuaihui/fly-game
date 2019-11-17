@@ -1,12 +1,12 @@
 import Phaser from 'phaser'
-import {IsPC} from './util'
+import {IsPC,windowWidth,windowHeight} from './util'
 
 const isPc= IsPC()
-
+console.log(document.body.clientWidth,window.innerHeight)
 export default {
   type: Phaser.AUTO,
-  width: isPc ? 350 * 1.5 : window.screen.width,
-  height: isPc ? 900 : window.screen.height,
+  width: isPc ? 350 * 1.5 : windowWidth,
+  height: isPc ? 900 : windowHeight,
   backgroundColor: "#2d2d2d",
   parent: 'game',
   physics: {

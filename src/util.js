@@ -13,7 +13,18 @@ function IsPC() {
     return flag;
   }
 
+  const windowWidth = Math.max(
+    document.documentElement.clientWidth, 
+    window.innerWidth
+)
+
+const windowHeight = Math.max(
+    document.documentElement.clientHeight, 
+    window.innerHeight
+)
 
   export {
-      IsPC
+    IsPC,
+    windowWidth,
+    windowHeight
   }

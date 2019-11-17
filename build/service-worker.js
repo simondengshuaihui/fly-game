@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fly-game/build/precache-manifest.791f70266687a03863c540dc5f425248.js"
+  "/fly-game/build/precache-manifest.fcda4d2ab5a629d7ae85ce6048181734.js"
 );
 
 self.addEventListener('message', (event) => {
