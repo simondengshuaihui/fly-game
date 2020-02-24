@@ -6,7 +6,7 @@
 > `yarn start`
 
 ## 线上体验
-[项目地址](https://simondengshuaihui.github.io/fly-game/build/index.html)
+[项目地址](https://simondengshuaihui.github.io/fly-game/)
 
 ## 项目效果图
 ### 加载
