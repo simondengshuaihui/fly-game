@@ -30,5 +30,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://simondengshuaihui.github.io/fly-game/build/"
+  "homepage": ".",
+  "devDependencies": {
+    "react-app-rewired": "^2.1.5"
+  }
 }
